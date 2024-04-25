@@ -14,7 +14,7 @@
 
 int ft_strncmp(const char *str1, const char *str2, size_t num)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while(i < num)
