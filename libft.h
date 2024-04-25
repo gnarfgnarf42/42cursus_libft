@@ -32,5 +32,6 @@ void    *ft_memset(void *ptr, int value, size_t num);
 void    ft_bzero(void *ptr, size_t num);
 void    *ft_memcpy(void *dest, const void *src, size_t num);
 void    *ft_memmove(void *dest, const void *src, size_t num);
+void    *ft_memchr(const void *s, int c, size_t num);
 
 #endif /* LIBFT_H */
