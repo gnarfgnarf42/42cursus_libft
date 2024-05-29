@@ -35,7 +35,7 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     		}
     		if (litlen > len)
     			return (NULL);
-    		if (ft_strncmp(big, little, len) == 0)
+    		if (ft_strncmp(big, little, litlen) == 0)
     			break;
     	}
     	big--;
