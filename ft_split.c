@@ -67,10 +67,10 @@ static int	split_words(const char *s, char c, char **split)
 	size_t	j;
 	int		start;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	start = -1;
-	while (i <= ft_strlen(s))
+	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
@@ -85,7 +85,6 @@ static int	split_words(const char *s, char c, char **split)
 			j++;
 			start = -1;
 		}
-		i++;
 	}
 	split[j] = (NULL);
 	return (1);
