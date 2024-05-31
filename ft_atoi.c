@@ -20,7 +20,6 @@ static int	ft_isspace(int c)
 		return (0);
 }
 
-
 int	ft_atoi(const char *nptr)
 {
 	int	result;
@@ -32,7 +31,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	while (ft_isspace(nptr[i]))
 		i++;
-	if (nptr[i] == '-' ||nptr[i] == '+')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			sign = -1;
@@ -43,7 +42,5 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (result * sign);		
+	return (result * sign);
 }
-
-

@@ -13,31 +13,23 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*create_empty_string(void)
 {
-	size_t	slen;
-	char	*substr;
+	char	*empty_str;
+
+	empty_str = (char *)malloc(1);
+	if (empty_str)
+		empty_str[0] = '\0';
+	return (empty_str);
+}
+
+static void	copy_substr(char *substr, const char *s, size_t start, size_t len)
+{
 	size_t	i;
 	size_t	j;
-	
-	slen = ft_strlen(s);
+
 	i = start;
-	j =0;
-	
-	if (s == NULL)
-		return (NULL);
-	if (start >= slen)
-	{
-		substr = (char *)malloc(1);
-		if (substr)
-			substr[0] = '\0';
-        	return substr;
-        }
-         if (len > slen - start)
-         	len = slen - start;
-         substr =(char *)malloc(len + 1);
-	if (substr == NULL)
-		return (NULL);
+	j = 0;
 	while (j < len)
 	{
 		substr[j] = s[i];
@@ -45,5 +37,23 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		j++;
 	}
 	substr[j] = '\0';
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	slen;
+	char	*substr;
+
+	if (s == NULL)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (start >= slen)
+		return (create_empty_string());
+	if (len > slen - start)
+		len = slen - start;
+	substr = (char *)malloc(len + 1);
+	if (substr == NULL)
+		return (NULL);
+	copy_substr(substr, s, start, len);
 	return (substr);
 }

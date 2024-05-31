@@ -12,6 +12,27 @@
 
 #include "libft.h"
 
+static char	*find_end_of_dest(char *dest, size_t size)
+{
+	while (size-- != 0 && *dest != '\0')
+		dest++;
+	return (dest);
+}
+
+static void	copy_src_to_dest(char **d, const char **s, size_t *n)
+{
+	while (**s != '\0')
+	{
+		if (*n != 1)
+		{
+			**d = **s;
+			(*d)++;
+			(*n)--;
+		}
+		(*s)++;
+	}
+}
+
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	char		*d;
@@ -19,25 +40,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t		n;
 	size_t		dlen;
 
-	d = dest;
-	s = src;
-	n = size;
-	dlen = 0;
-	while (n-- != 0 && *d != 0)
-		d++;
+	d = find_end_of_dest(dest, size);
 	dlen = d - dest;
 	n = size - dlen;
 	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
-	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
-	}
+		return (dlen + ft_strlen(src));
+	s = src;
+	copy_src_to_dest(&d, &s, &n);
 	*d = '\0';
 	return (dlen + (s - src));
 }

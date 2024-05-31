@@ -13,20 +13,20 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int is_in_set(char c, const char *set)
+static int	is_in_set(char c, const char *set)
 {
 	return (ft_strchr(set, c) != NULL);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *trimmed_str;
-	const char *start;
-	const char *end;
-	size_t len;
-	
+	const char	*start;
+	const char	*end;
+	char		*trimmed_str;
+	size_t		len;
+
 	if (!s1 || !set)
-		return NULL;
+		return (NULL);
 	start = s1;
 	while (*start && is_in_set(*start, set))
 		start++;
@@ -35,8 +35,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	len = end - start;
 	trimmed_str = (char *)malloc(len + 1);
-		if (!trimmed_str)
-			return NULL;
+	if (!trimmed_str)
+		return (NULL);
 	ft_strlcpy(trimmed_str, start, len + 1);
-	return trimmed_str;
+	return (trimmed_str);
 }
