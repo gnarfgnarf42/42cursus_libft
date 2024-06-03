@@ -21,7 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	max_size_t = (size_t) - 1;
 	if (nmemb == 0 || size == 0)
-		total_size = 1;
+		total_size = 0;
 	else
 	{
 		if (nmemb > max_size_t / size)

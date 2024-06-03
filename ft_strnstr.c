@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	c = *little;
 	if (c == '\0')
 		return ((char *)big);
-	while (len >= litlen && *big != '\0')
+	while (*big != '\0' && len >= litlen)
 	{
 		if (*big == c && ft_strncmp(big, little, litlen) == 0)
 			return ((char *)big);
