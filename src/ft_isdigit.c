@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sscholz <sscholz@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 13:30:00 by sscholz           #+#    #+#             */
-/*   Updated: 2024/04/17 13:30:03 by sscholz          ###   ########.fr       */
+/*   Created: 2024/04/15 17:20:43 by sscholz           #+#    #+#             */
+/*   Updated: 2024/04/15 17:20:46 by sscholz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
+	if (c >= '0' && c <= '9')
+		return (1);
 	else
-		return (c);
+		return (0);
 }

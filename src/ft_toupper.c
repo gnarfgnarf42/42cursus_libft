@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sscholz <sscholz@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 18:35:10 by sscholz           #+#    #+#             */
-/*   Updated: 2024/04/15 18:35:14 by sscholz          ###   ########.fr       */
+/*   Created: 2024/04/17 12:17:12 by sscholz           #+#    #+#             */
+/*   Updated: 2024/04/17 12:17:14 by sscholz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+int	ft_toupper(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
+	if (c >= 'a' && c <= 'z')
+		return (c -32);
 	else
-		return (0);
+		return (c);
 }

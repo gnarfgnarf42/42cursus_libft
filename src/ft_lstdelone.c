@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sscholz <sscholz@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:20:43 by sscholz           #+#    #+#             */
-/*   Updated: 2024/04/15 17:20:46 by sscholz          ###   ########.fr       */
+/*   Created: 2024/10/04 19:44:02 by sscholz           #+#    #+#             */
+/*   Updated: 2024/10/04 19:44:03 by sscholz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+/*static void	del_content(void *content)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	free(content);
+}*/
+
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
+{
+	if (lst == NULL || del == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
 }

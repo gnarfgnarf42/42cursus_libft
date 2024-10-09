@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sscholz <sscholz@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 17:41:34 by sscholz           #+#    #+#             */
-/*   Updated: 2024/04/15 17:41:36 by sscholz          ###   ########.fr       */
+/*   Created: 2024/04/15 18:43:37 by sscholz           #+#    #+#             */
+/*   Updated: 2024/04/15 18:43:39 by sscholz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (c >= 32 && c <= 126)
 		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (2);
-	else if (c >= '0' && c <= '9')
-		return (3);
 	else
 		return (0);
 }
